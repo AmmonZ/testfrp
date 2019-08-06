@@ -10,8 +10,8 @@ vi frpc.ini
 
 [common]
 server_addr = frp.dadiopi.top
-server_port = 7000
-token = tianhandidong
+server_port = ****
+token = *************
 [zym2_ssh]
 type = tcp
 local_ip = 127.0.0.1
@@ -20,7 +20,7 @@ remote_port = 22222
 
 bash test.sh #测试-ctrl+c取消-测试无报错在使用start.sh启动
 bash start.sh ##后台运行&重启（自动结束之前进程）
-ssh zeng_19
+ssh *******
 @frp.dadiopi.top -p 22222
 bash stop.sh ##停止
 
@@ -30,7 +30,7 @@ exit 0之前添加/root/frp/start.sh
 
 vi /etc/sudoers
 #User privilege specification
-zeng_19
+*******
  ALL = NOPASSWD:ALL 或者 zeng_19
  ALL=(ALL:ALL) ALL
 :wq!
