@@ -1,0 +1,40 @@
+
+wget https://github.com/fatedier/frp/releases/download/v0.28.0/frp_0.28.0_linux_amd64.tar.gz
+
+tar -zxvf frp_0.28.0_linux_amd64.tar.gz
+rm -rf frp_0.28.0_linux_amd64.tar.gz
+ls
+cd frp
+ls
+vi frpc.ini
+
+[common]
+server_addr = frp.dadiopi.top
+server_port = 7000
+token = tianhandidong
+[zym2_ssh]
+type = tcp
+local_ip = 127.0.0.1
+local_port = 22
+remote_port = 22222
+
+bash test.sh #测试-ctrl+c取消-测试无报错在使用start.sh启动
+bash start.sh ##后台运行&重启（自动结束之前进程）
+ssh zeng_19
+@frp.dadiopi.top -p 22222
+bash stop.sh ##停止
+
+vi /etc/rc.local
+exit 0之前添加/root/frp/start.sh
+:wq
+
+vi /etc/sudoers
+#User privilege specification
+zeng_19
+ ALL = NOPASSWD:ALL 或者 zeng_19
+ ALL=(ALL:ALL) ALL
+:wq!
+
+bash start.sh
+ps -aux | grep frp
+
